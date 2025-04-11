@@ -4,7 +4,6 @@ WeakMap-based Event Listener.
 ```javascript
 import { add } from "wmel"
 
-
 // Add listener
 
 const abort = add(
@@ -17,4 +16,9 @@ const abort = add(
 // Abort listener
 
 abort();
+```
+
+## Install
+```sh
+npm i wmel
 ```
