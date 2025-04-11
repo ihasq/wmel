@@ -17,7 +17,7 @@
   "license": "WTFPL",
   "author": "ihasq",
   "type": "module",
-  "main": "src/mod.js",
+  "main": "mod.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }
