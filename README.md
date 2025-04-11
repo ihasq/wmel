@@ -2,11 +2,11 @@
 WeakMap-based Event Listener.
 
 ```javascript
-import { add } from "wmel"
+import { listen } from "wmel"
 
 // Add listener
 
-const abort = add(
+const abort = listen(
 	document.querySelector("#some-button"), // target
 	"click",                                // type
 	({ target }) => console.log("clicked")  // listener

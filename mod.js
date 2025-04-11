@@ -10,7 +10,7 @@ let establishedListener = "\0"
  * 
  * @returns { (() => void) | void }
  */
-export const add = (target, type, listener) => {
+export const listen = (target, type, listener) => {
 
 	if(!(target && type && listener)) return;
 
