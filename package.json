@@ -1,0 +1,24 @@
+{
+  "name": "wmel",
+  "version": "0.0.1",
+  "description": "WeakMap-based Event Listener",
+  "keywords": [
+    "WeakMap",
+    "addEventListener"
+  ],
+  "homepage": "https://github.com/ihasq/wmel#readme",
+  "bugs": {
+    "url": "https://github.com/ihasq/wmel/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihasq/wmel.git"
+  },
+  "license": "WTFPL",
+  "author": "ihasq",
+  "type": "module",
+  "main": "src/mod.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
