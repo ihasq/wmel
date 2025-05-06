@@ -16,6 +16,7 @@
   },
   "license": "WTFPL",
   "author": "ihasq",
+  "main": "/mod.ts",
   "type": "module",
   "types": "/mod.ts",
   "scripts": {
