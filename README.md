@@ -22,3 +22,6 @@ abort();
 ```sh
 npm i wmel
 ```
+
+## Benchmark
+[jsPerf](https://jsperf.app/nuyaku/1/preview) shows WMEL is **~60% faster** than vanilla addEventListener.
