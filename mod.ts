@@ -1,32 +1,37 @@
-const targetMap = new WeakMap();
-
 let establishedListener = "\0"
 
-export const listen = function (
+const
 
-	target: EventTarget,
-	type: keyof WindowEventMap,
-	listener: (this: Window, ev: Event) => any
+	targetMap = new WeakMap(),
 
-): () => void {
+	listen = function (
 
-	establishedListener.includes(`\0${type}\0`)
-		? 0
-		: (
-			addEventListener(type, (e: any) => targetMap.get(e.target)?.[type]?.forEach?.((fn: Function) => fn?.(e)), { passive: true }),
-			establishedListener += type + "\0"
-		)
-	;
+		target: EventTarget,
+		type: keyof WindowEventMap,
+		listener: (this: Window, ev: Event) => any
 
-	let fnMap = targetMap.get(target);
+	): () => void {
 
-	fnMap ? 0 : targetMap.set(target, fnMap = {});
+		establishedListener.includes(`\0${type}\0`)
+			? 0
+			: (
+				addEventListener(type, (e: any) => targetMap.get(e.target)?.[type]?.forEach?.((fn: Function) => fn?.(e)), { passive: true }),
+				establishedListener += type + "\0"
+			)
+		;
 
-	const index = (fnMap[type] ||= []).push(listener) - 1;
+		let fnMap = targetMap.get(target);
 
-	return function () {
+		fnMap ? 0 : targetMap.set(target, fnMap = {});
 
-		fnMap[type][index] = void 0
+		const index = (fnMap[type] ||= []).push(listener) - 1;
 
-	};
-};
+		return function () {
+
+			fnMap[type][index] = void 0
+
+		};
+	}
+;
+
+export { listen }
