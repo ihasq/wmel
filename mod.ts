@@ -4,6 +4,9 @@ const
 
 	targetMap = new WeakMap(),
 
+	getTarget = targetMap.get.bind(targetMap),
+	setTarget = targetMap.set.bind(targetMap),
+
 	listen = function (
 
 		target: EventTarget,
@@ -15,14 +18,14 @@ const
 		establishedListener.includes(`\0${type}\0`)
 			? 0
 			: (
-				addEventListener(type, (e: any) => targetMap.get(e.target)?.[type]?.forEach?.((fn: Function) => fn?.(e)), { passive: true }),
+				addEventListener(type, (e: any) => getTarget(e.target)?.[type]?.forEach?.((fn: Function) => fn?.(e)), { passive: true }),
 				establishedListener += type + "\0"
 			)
 		;
 
-		let fnMap = targetMap.get(target);
+		let fnMap = getTarget(target);
 
-		fnMap ? 0 : targetMap.set(target, fnMap = {});
+		fnMap ? 0 : setTarget(target, fnMap = {});
 
 		const index = (fnMap[type] ||= []).push(listener) - 1;
 
